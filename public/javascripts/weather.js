@@ -4,7 +4,6 @@ $(document).ready(function() {
         console.log(zipcode)
 
         if (zipcode) {
-            alert("You will now be redirected.");
             window.location.pathname = `/tracker/${zipcode}`;
         }
     })

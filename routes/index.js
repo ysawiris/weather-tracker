@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var weather = require('openweather-apis');
  
-weather.setLang('it');
+weather.setLang('en');
 // English - en, Russian - ru, Italian - it, Spanish - es (or sp),
 // Ukrainian - uk (or ua), German - de, Portuguese - pt,Romanian - ro,
 // Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg,
@@ -21,7 +21,7 @@ weather.setCityId(4367872);
 weather.setZipCode(33615);
 
 // 'metric'  'internal'  'imperial'
-weather.setUnits('metric');
+weather.setUnits('imperial');
 
 // check http://openweathermap.org/appid#get for get the APPID
 weather.setAPPID('b413f9c129c693c029efc0195b97bb24');
@@ -43,8 +43,10 @@ router.get('/tracker/:zipcode', function(req, res, next) {
   // get all the JSON file returned from server (rich of info)
   weather.getAllWeather(function(err, JSONObj){
       console.log(JSONObj);
+      console.log(JSONObj.weather[0].main)
+      res.render('weather.hbs', {JSONObj:JSONObj});
   });
-  res.render('tracker.hbs');
+  
 });
 
 
