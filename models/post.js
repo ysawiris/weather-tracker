@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-    user: { type: String, required: true },
+    zipcode: {type: String, required: true },
     createdAt: { type: Date },
     updatedAt: { type: Date },
     title: { type: String, required: true },
-    summary: { type: String, required: true }
+    temp: { type: String }
 });
 
 PostSchema.pre("save", function(next) {

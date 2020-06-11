@@ -2,9 +2,22 @@
     <div class="container">
         <div class="intro"><img class="img-fluid intro-img mb-3 mb-lg-0 rounded" src="/images/happy-kid.jpg">
             <div class="intro-text left-0 text-centerfaded p-5 rounded bg-faded text-center">
-                <h2 class="section-heading mb-4"><span class="section-heading-upper">{{JSONObj.name}}</span><span class="section-heading-lower">{{ JSONObj.main.temp }}</span></h2>
-                <p class="mb-3">{{ JSONObj.weather.[0].main }}</p>
-                <div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="">Check the Skies!</a></div>
+                <h2 class="section-heading mb-4"><span class="section-heading-upper">{{JSONObj.name}}</span><span class="section-heading-lower">{{ JSONObj.main.temp }}°</span></h2>
+                <p style="margin: 0;">{{ JSONObj.weather.[0].main }}</p>
+                <p style="margin: 0;">{{ JSONObj.weather.[0].description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-4"><span class="section-heading-upper">HOW DOES THIS WEATHER</span><span class="section-heading-lower">MAKE YOU FEEL?</span></h2>
+                    <textarea name="" id="" cols="40" rows="5"></textarea>
+                </div>
+                <div class="mx-auto intro-button" style="display: flex; justify-content:center; transform:translateY(-30px)"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="/tracker">Post!!</a></div>
             </div>
         </div>
     </div>

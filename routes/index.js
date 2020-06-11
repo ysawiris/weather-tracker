@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const Post = require('../models/post');
 var weather = require('openweather-apis');
  
 weather.setLang('en');
@@ -33,7 +34,16 @@ router.get('/', function(req, res,){
 router.get('/tracker', function(req, res){
   res.render('tracker.hbs')
 })
+router.post('/tracker/:zipcode/post', function(req, res) {
+  if (req.body) {
+    console.log(req.body)
+    var post = new Post(req.body)
+  }
+})
 
+router.get('/about', function(req, res) {
+  res.render('about.hbs')
+})
 
 
 /* GET home page. */
@@ -44,10 +54,14 @@ router.get('/tracker/:zipcode', function(req, res, next) {
   weather.getAllWeather(function(err, JSONObj){
       console.log(JSONObj);
       console.log(JSONObj.weather[0].main)
+      // if (Post.find({'zipcode': zipcode}).populate()
+      //   .then(post => {
+          
+      //   }))
       res.render('weather.hbs', {JSONObj:JSONObj});
   });
-  
 });
+
 
 
 module.exports = router;
