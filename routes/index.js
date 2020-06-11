@@ -26,7 +26,9 @@ weather.setUnits('metric');
 // check http://openweathermap.org/appid#get for get the APPID
 weather.setAPPID('b413f9c129c693c029efc0195b97bb24');
 
-
+router.get('/', function(req, res,){
+  res.render('index.hbs')
+})
 
 
 /* GET home page. */
@@ -37,7 +39,7 @@ router.get('/:zipcode', function(req, res, next) {
   weather.getAllWeather(function(err, JSONObj){
       console.log(JSONObj);
   });
-  res.render('index.hbs');
+  res.render('tracker.hbs');
 });
 
 
