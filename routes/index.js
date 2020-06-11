@@ -30,9 +30,13 @@ router.get('/', function(req, res,){
   res.render('index.hbs')
 })
 
+router.get('/tracker', function(req, res){
+  res.render('tracker.hbs')
+})
+
 
 /* GET home page. */
-router.get('/:zipcode', function(req, res, next) {
+router.get('/tracker/:zipcode', function(req, res, next) {
   // or set zip code
   weather.setZipCode(req.params.zipcode);
   // get all the JSON file returned from server (rich of info)
